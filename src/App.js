@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import router from './router';
+import { RouterProvider } from "react-router-dom";
+import { useEffect } from 'react'; 
+import { useDispatch } from 'react-redux'; 
+import { setMenuList } from './store/reducer/menu'; 
 
-function App() {
+
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const localMenu = localStorage.getItem("menu");
+    if (localMenu) {
+      dispatch(setMenuList(JSON.parse(localMenu)));
+    }
+  }, [dispatch]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <RouterProvider router={router} />
     </div>
   );
 }

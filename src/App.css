@@ -1,38 +1,42 @@
-.App {
-  text-align: center;
+.demo-logo-vertical {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 调整整体布局高度占满页面 */
+.ant-layout {
+    min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 左侧菜单栏 */
+.ant-layout-sider {
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* 头部样式 */
+.ant-layout-header {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 16px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
-.App-link {
-  color: #61dafb;
+/* 内容区样式 */
+.ant-layout-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 1px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 按钮样式微调 */
+.ant-btn-text {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.ant-btn-text:hover {
+    color: #1890ff;
 }

@@ -1,0 +1,48 @@
+.home img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.home .user{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.home .userinfo{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.home .userinfo .name{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.home .userinfo .access{
+    font-size: 14px;
+}
+.home .loginInfo{ 
+    padding: 10px;
+}
+
+.home .loginInfo p{
+    line-height: 28px;
+    font-size: 14px;
+    color: #999999;
+}
+.home .loginInfo span {
+    margin-left: 30px;
+    color: #333333;
+}
+
+.home .table {
+    margin-top: 10px;
+}
+
+.graph {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
