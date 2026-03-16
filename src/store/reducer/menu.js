@@ -4,8 +4,12 @@ const MenuSlice = createSlice({
   name: "menu",
   initialState: {
     menuList: [],
+    userInfo:''
   },
   reducers: {
+    setUserInfo: (state, actions) => {
+      state.userInfo = actions.payload;
+    },
     setMenuList: (state, actions) => {
       state.menuList = actions.payload;
     },
@@ -15,5 +19,5 @@ const MenuSlice = createSlice({
   },
 });
 
-export const { setMenuList, clearMenuList } = MenuSlice.actions;
+export const { setUserInfo, setMenuList, clearMenuList } = MenuSlice.actions;
 export default MenuSlice.reducer;

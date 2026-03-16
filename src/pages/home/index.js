@@ -4,6 +4,7 @@ import { Col, Row, Card } from "antd";
 import { getData } from "../../api";
 import { Table } from "antd";
 import MyEchart from "../../component/Echarts";
+import { useSelector } from "react-redux";
 
 // 列配置
 const columns = [
@@ -29,14 +30,20 @@ const columns = [
 ];
 
 const Home = (props) => {
+  const userInfo = useSelector((state) => state.menu.userInfo);
   // 表格数据
   const [tableData, setTableData] = useState([]);
   // echarts响应数据
   const [echartsData, setEchartsData] = useState({});
-
+  const flag = userInfo === "admin";
   //图片路径
-  const imgUrl = require("../../assets/images/user.png");
+  const adminImgUrl = require("../../assets/images/user.png");
+  const userImgUrl = require("../../assets/images/user.png");
+  const imgUrl = flag ? adminImgUrl : userImgUrl;
 
+  //用户信息
+  const username = flag ? "Admin" : "xiaoxiao";
+  const userIdentify = flag ? "超级管理员" : "普通用户";
   // 获取数据
   const getTableData = async () => {
     const { data: res } = await getData();
@@ -101,8 +108,8 @@ const Home = (props) => {
           <div className="user">
             <img src={imgUrl} alt="用户头像" />
             <div className="userinfo">
-              <p className="name">Admin</p>
-              <p className="access">超级管理员</p>
+              <p className="name">{username}</p>
+              <p className="access">{userIdentify}</p>
             </div>
           </div>
           <div className="loginInfo">

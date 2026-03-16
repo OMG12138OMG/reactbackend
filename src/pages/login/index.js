@@ -4,7 +4,7 @@ import "./login.css";
 import { getMenu } from "../../api";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setMenuList } from "../../store/reducer/menu";
+import { setUserInfo, setMenuList } from "../../store/reducer/menu";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,11 +20,12 @@ const Login = () => {
         content: "请输入用户名和密码"
       });
     }
+    // console.log(values.username);
     getMenu(values).then(res => {
       const { code, data } = res.data;
       if(code === 200) {
+        dispatch(setUserInfo(values.username))
         dispatch(setMenuList(data.menu))
-        // console.log(data.menu);
         localStorage.setItem("token", data.token);
         localStorage.setItem("menu", JSON.stringify(data.menu));
         message.open({
