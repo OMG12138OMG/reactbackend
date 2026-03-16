@@ -38,7 +38,7 @@ const Home = (props) => {
   const flag = userInfo === "admin";
   //图片路径
   const adminImgUrl = require("../../assets/images/user.png");
-  const userImgUrl = require("../../assets/images/user.png");
+  const userImgUrl = require("../../assets/images/user-default.png");
   const imgUrl = flag ? adminImgUrl : userImgUrl;
 
   //用户信息
