@@ -44,6 +44,15 @@ const tabSlice = createSlice({
         state.currentMenu = action.payload;
       }
     },
+    clearTag: (state, action) => {
+      state.tabList = [
+        {
+          path: "/",
+          name: "home",
+          label: "首页",
+        },
+      ];
+    },
   },
 });
 
@@ -51,7 +60,8 @@ export const {
     toggleCollapse, 
     selectMenuList, 
     closeTag, 
-    setCurrentMenu 
+    setCurrentMenu,
+    clearTag 
 } = tabSlice.actions;
 
 export default tabSlice.reducer;

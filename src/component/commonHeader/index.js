@@ -3,13 +3,19 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Layout, Avatar, Dropdown } from "antd";
 import "./index.css";
 import { useDispatch } from "react-redux";
-import { toggleCollapse } from "../../store/reducer/tab";
-import { useNavigate } from "react-router-dom";
+import { toggleCollapse, clearTag } from "../../store/reducer/tab";
+import { useNavigate, useSelector } from "react-router-dom";
 import { clearMenuList } from "../../store/reducer/menu";
 
 
 const { Header } = Layout;
 const ComHeader = ({ collapsed }) => {
+  const userInfo = useSelector((state) => state.menu.userInfo);
+  const flag = userInfo === "admin";
+  //图片路径
+  const adminImgUrl = require("../../assets/images/user.png");
+  const userImgUrl = require("../../assets/images/user-default.png");
+  const imgUrl = flag ? adminImgUrl : userImgUrl;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const setCollapsed = () => {
@@ -20,6 +26,7 @@ const ComHeader = ({ collapsed }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("menu");
     dispatch(clearMenuList());
+    dispatch(clearTag());
     navigate("/login");
   };
   const items = [
@@ -49,7 +56,7 @@ const ComHeader = ({ collapsed }) => {
         <Avatar
           size={36}
           src={
-            <img src={require("../../assets/images/user.png")} alt="avatar" />
+            <img src={imgUrl} alt="avatar" />
           }
         />
       </Dropdown>
