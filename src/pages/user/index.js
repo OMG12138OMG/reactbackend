@@ -143,6 +143,7 @@ const User = () => {
 
   useEffect(() => {
     getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
   return (
     <div className="user">

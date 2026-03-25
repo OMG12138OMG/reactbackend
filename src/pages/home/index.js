@@ -99,6 +99,7 @@ const Home = (props) => {
 
   useEffect(() => {
     getTableData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

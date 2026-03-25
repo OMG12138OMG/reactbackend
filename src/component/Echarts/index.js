@@ -82,7 +82,7 @@ const MyEchart = ({ style, chartData, isAxisChart = true }) => {
       option = normalOption;
     }
     echartObj.current.setOption(option);
-  }, [chartData]);
+  }, [chartData, isAxisChart]);
   return <div style={style} ref={echartRef}></div>;
 };
 

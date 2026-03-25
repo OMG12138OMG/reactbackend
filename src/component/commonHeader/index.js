@@ -29,7 +29,7 @@ const ComHeader = ({ collapsed }) => {
     },
     {
       key: "2",
-      label: <a onClick={() => logout()}>退出登录</a>
+      label: <span onClick={() => logout()}>退出登录</span>
     },
   ];
   return (
