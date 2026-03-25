@@ -4,7 +4,8 @@ import { Button, Layout, Avatar, Dropdown } from "antd";
 import "./index.css";
 import { useDispatch } from "react-redux";
 import { toggleCollapse, clearTag } from "../../store/reducer/tab";
-import { useNavigate, useSelector } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { clearMenuList } from "../../store/reducer/menu";
 
 
